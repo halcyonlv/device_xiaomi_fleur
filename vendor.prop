@@ -260,6 +260,7 @@ debug.sf.enable_transaction_tracing=false
 debug.sf.enable_adpf_cpu_hint=true
 debug.sf.enable_gl_backpressure=0
 debug.sf.auto_latch_unsignaled=false
+debug.sf.latch_unsignaled=true
 debug.sf.phase_offset_threshold_for_next_vsync_ns=6100000
 debug.sf.late.sf.duration=25500000
 debug.sf.late.app.duration=20600000
