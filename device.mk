@@ -131,7 +131,8 @@ PRODUCT_PACKAGES += \
     libutilscallstack.vendor
 
 PRODUCT_PACKAGES += \
-    libutils-v32
+    libutils-v32 \
+    libutils.vendor
 
 PRODUCT_PACKAGES += \
     disable_configstore
