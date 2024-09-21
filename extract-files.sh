@@ -101,10 +101,6 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             sed -i 's/"sea"/"fleur"/' "$2"
             ;;
-        vendor/lib64/libwifi-hal-mtk.so)
-            [ "$2" = "" ] && return 0
-            "$PATCHELF" --set-soname libwifi-hal-mtk.so "${2}"
-            ;;
         vendor/bin/mnld|\
         vendor/lib*/libcam.utils.sensorprovider.so|\
         vendor/lib*/librgbwlightsensor.so|\
@@ -130,7 +126,6 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
             "${PATCHELF}" --replace-needed "libavservices_minijail_vendor.so" "libavservices_minijail.so" "${2}"
-            "${PATCHELF}" --set-soname "${2}" "${2}"
             ;;
         vendor/lib*/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
             [ "$2" = "" ] && return 0
