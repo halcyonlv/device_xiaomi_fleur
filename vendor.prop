@@ -117,7 +117,7 @@ ro.vendor.mtk_widevine_drm_l1_support=1
 # Fingerprint
 persist.vendor.fingerprint.type=side
 persist.vendor.fingerprint.sensor_modules=fpc,goodix
-persist.vendor.fingerprint.sensor_location=1080|915|145
+persist.vendor.fingerprint.sensor_location=1080|915|145|local:4627039422300187648
 
 # FRP
 ro.frp.pst=/dev/block/by-name/frp
