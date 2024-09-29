@@ -115,7 +115,9 @@ ro.netflix.bsp_rev=MTK6781-34066-1
 ro.vendor.mtk_widevine_drm_l1_support=1
 
 # Fingerprint
-ro.hardware.fp.sideCap=true
+persist.vendor.fingerprint.type=side
+persist.vendor.fingerprint.sensor_modules=fpc,goodix
+persist.vendor.fingerprint.sensor_location=1080|915|145
 
 # FRP
 ro.frp.pst=/dev/block/by-name/frp
