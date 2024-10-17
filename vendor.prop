@@ -216,7 +216,6 @@ ro.vendor.mtk_external_sim_only_slots=0
 persist.radio.multisim.config=dsds
 persist.vendor.radio.msimmode=dsds
 ro.vendor.radio.max.multisim=dsds
-ro.telephony.sim.count=2
 
 # Radio (IMS)
 persist.vendor.ims_support=1
