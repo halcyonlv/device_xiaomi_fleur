@@ -1,0 +1,26 @@
+[
+    {
+        "remote": "halcyon-devices",
+        "repository": "kernel_xiaomi_mt6781",
+        "branch": "ursinia",
+        "target_path": "kernel/xiaomi/mt6781"
+    },
+    {
+        "remote": "halcyon-blobs",
+        "repository": "vendor_xiaomi_fleur",
+        "branch": "ursinia",
+        "target_path": "vendor/xiaomi/fleur"
+    },
+    {
+        "remote": "halcyon",
+        "repository": "hardware_xiaomi",
+        "branch": "14.3",
+        "target_path": "hardware/xiaomi"
+    },
+    {
+        "remote": "halcyon",
+        "repository": "hardware_mediatek",
+        "branch": "14.3",
+        "target_path": "hardware/mediatek"
+    }
+]
