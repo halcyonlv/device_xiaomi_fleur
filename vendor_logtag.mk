@@ -276,4 +276,5 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.OpenGLRenderer=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.C2MtkBufferManager=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.libperfmgr=$(VENDOR_LOG_LEVEL) \
-    persist.log.tag.PrefCtrlListHelper=$(VENDOR_LOG_LEVEL)
+    persist.log.tag.PrefCtrlListHelper=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.DisplayManagerService=$(VENDOR_LOG_LEVEL)
