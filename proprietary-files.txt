@@ -1,9 +1,5 @@
 # All blobs that aren't noted or pinned are from sea V816.0.10.0.UHZMIXM
 
-# AEE
-vendor/lib/libaedv.so
-vendor/lib64/libaedv.so
-
 # Audio
 vendor/lib/hw/audio.primary.mt6781.so
 vendor/lib/hw/audio.r_submix.mt6781.so
@@ -978,9 +974,6 @@ vendor/lib/arm.graphics-V1-ndk_platform.so
 vendor/lib/libdip_drv.so
 vendor/lib/libdip_imem.so
 vendor/lib/libdip_postproc.so
-vendor/lib/libion_mtk.so
-vendor/lib/libion_ulit.so
-vendor/lib/libladder.so
 vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/hw/vulkan.mt6781.so
 vendor/lib64/egl/libGLES_meow.so
 vendor/lib64/egl/libMEOW_data.so
@@ -1020,16 +1013,12 @@ vendor/lib64/libgralloc_extra.so
 vendor/lib64/libgralloc_metadata.so
 vendor/lib64/libgralloctypes_mtk.so
 vendor/lib64/libhdrvideo.so
-vendor/lib64/libion_mtk.so
-vendor/lib64/libion_ulit.so
-vendor/lib64/libladder.so
 vendor/lib64/libmmagent.so
 vendor/lib64/libmml.so
 vendor/lib64/libpqpconfig.so
 vendor/lib64/libpqframework.so
 vendor/lib64/libpq_cust_base.so
 vendor/lib64/libpqparamparser.so
-vendor/lib64/libudf.so
 vendor/lib64/vendor.mediatek.hardware.composer_ext@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.1.so
@@ -1176,6 +1165,17 @@ vendor/lib64/libcodec2_soft_mtk_msadpcmdec.so
 vendor/lib64/libcodec2_vpp_qt_plugin.so
 vendor/lib64/libcodec2_vpp_rs_plugin.so
 vendor/lib64/libformatter.so
+
+# MediaTek - from gold V815.0.8.0.UNQMIXM
+vendor/lib/libaedv.so
+vendor/lib/libladder.so
+vendor/lib/libion_mtk.so
+vendor/lib/libion_ulit.so
+vendor/lib64/libladder.so
+vendor/lib64/libudf.so
+vendor/lib64/libaedv.so
+vendor/lib64/libion_mtk.so
+vendor/lib64/libion_ulit.so
 
 # MMS
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.6-service
