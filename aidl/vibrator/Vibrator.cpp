@@ -51,18 +51,22 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
     uint32_t index = 0;
     uint32_t timeMs = 0;
     float aw8622_strength = 1.0;
+    float aw8622_strength_dclick = aw8622_strength;
 
     LOG(INFO) << "Vibrator perform";
 
     switch (strength) {
         case EffectStrength::LIGHT:
             aw8622_strength = 0.5; // Half the default duration
+            aw8622_strength_dclick = aw8622_strength;
             break;
         case EffectStrength::MEDIUM:
-            aw8622_strength = 1.0; // Default duration
+            aw8622_strength = 2.0; // Default duration
+            aw8622_strength_dclick = aw8622_strength;
             break;
         case EffectStrength::STRONG:
-            aw8622_strength = 2.0; // Double the default duration
+            aw8622_strength = 4.0; // 4x the default duration
+            aw8622_strength_dclick = 3.0; // Triple the default duration for Double Click
             break;
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -92,7 +96,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
         case Effect::DOUBLE_CLICK:
             LOG(INFO) << "Vibrator effect set to DOUBLE_CLICK";
             index = WAVEFORM_DOUBLE_CLICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS * aw8622_strength;
+            timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS * aw8622_strength_dclick;
             break;
         case Effect::THUD:
             LOG(INFO) << "Vibrator effect set to THUD";
