@@ -50,44 +50,59 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
     ndk::ScopedAStatus status;
     uint32_t index = 0;
     uint32_t timeMs = 0;
+    float aw8622_strength = 1.0;
 
     LOG(INFO) << "Vibrator perform";
+
+    switch (strength) {
+        case EffectStrength::LIGHT:
+            aw8622_strength = 0.5; // Half the default duration
+            break;
+        case EffectStrength::MEDIUM:
+            aw8622_strength = 1.0; // Default duration
+            break;
+        case EffectStrength::STRONG:
+            aw8622_strength = 2.0; // Double the default duration
+            break;
+        default:
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
 
     switch (effect) {
         case Effect::TICK:
             LOG(INFO) << "Vibrator effect set to TICK";
             index = WAVEFORM_TICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_TICK_EFFECT_MS;
+            timeMs = WAVEFORM_TICK_EFFECT_MS * aw8622_strength;
             break;
         case Effect::TEXTURE_TICK:
             LOG(INFO) << "Vibrator effect set to TEXTURE_TICK";
             index = WAVEFORM_TEXTURE_TICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_TEXTURE_TICK_EFFECT_MS;
+            timeMs = WAVEFORM_TEXTURE_TICK_EFFECT_MS * aw8622_strength;
             break;
         case Effect::CLICK:
             LOG(INFO) << "Vibrator effect set to CLICK";
             index = WAVEFORM_CLICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_CLICK_EFFECT_MS;
+            timeMs = WAVEFORM_CLICK_EFFECT_MS * aw8622_strength;
             break;
         case Effect::HEAVY_CLICK:
             LOG(INFO) << "Vibrator effect set to HEAVY_CLICK";
             index = WAVEFORM_HEAVY_CLICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_HEAVY_CLICK_EFFECT_MS;
+            timeMs = WAVEFORM_HEAVY_CLICK_EFFECT_MS * aw8622_strength;
             break;
         case Effect::DOUBLE_CLICK:
             LOG(INFO) << "Vibrator effect set to DOUBLE_CLICK";
             index = WAVEFORM_DOUBLE_CLICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS;
+            timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS * aw8622_strength;
             break;
         case Effect::THUD:
             LOG(INFO) << "Vibrator effect set to THUD";
             index = WAVEFORM_THUD_EFFECT_INDEX;
-            timeMs = WAVEFORM_THUD_EFFECT_MS;
+            timeMs = WAVEFORM_THUD_EFFECT_MS * aw8622_strength;
             break;
         case Effect::POP:
             LOG(INFO) << "Vibrator effect set to POP";
             index = WAVEFORM_TICK_EFFECT_INDEX;
-            timeMs = WAVEFORM_POP_EFFECT_MS;
+            timeMs = WAVEFORM_POP_EFFECT_MS * aw8622_strength;
             break;
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
