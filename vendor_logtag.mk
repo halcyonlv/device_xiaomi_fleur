@@ -290,4 +290,5 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.VPUD=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.SystemServerTimingAsync=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.StorageManagerService=$(VENDOR_LOG_LEVEL) \
-    persist.log.tag.LazyLogger=$(VENDOR_LOG_LEVEL)
+    persist.log.tag.LazyLogger=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.CompatibilityChangeReporter=$(VENDOR_LOG_LEVEL)
