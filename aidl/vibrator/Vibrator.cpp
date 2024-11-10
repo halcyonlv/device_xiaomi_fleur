@@ -51,17 +51,22 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
     uint32_t index = 0;
     uint32_t timeMs = 0;
     float aw8622_strength = 1.0;
+    float aw8622_strength_max = 4.0;
     float aw8622_strength_dclick = aw8622_strength;
 
     LOG(INFO) << "Vibrator perform";
 
+    if(aw8622_strength > aw8622_strength_max) {
+        aw8622_strength = aw8622_strength_max;
+    }
+    
     switch (strength) {
         case EffectStrength::LIGHT:
             aw8622_strength = 0.5; // Half the default duration
             aw8622_strength_dclick = aw8622_strength;
             break;
         case EffectStrength::MEDIUM:
-            aw8622_strength = 2.0; // Default duration
+            aw8622_strength = 2.0; // Double the default duration
             aw8622_strength_dclick = aw8622_strength;
             break;
         case EffectStrength::STRONG:
