@@ -304,9 +304,6 @@ on post-fs-data
     chown audioserver audio /sys/bus/platform/devices/rt5509_param.1/prop_param
     chown audioserver audio /sys/bus/platform/devices/mt6660-param.0/prop_params
 
-    # AAudio Boost
-    write /dev/stune/rt/schedtune.boost 30
-
     # Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
 

@@ -196,7 +196,7 @@
     },
     {
       "Name": "UclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min",
+      "Path": "/dev/cpuctl/system/cpu.uclamp.min",
       "Values": [
         "25",
         "10",
@@ -207,7 +207,7 @@
     },
     {
       "Name": "FGUclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min",
+      "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "25",
         "10",
@@ -218,7 +218,7 @@
     },
     {
       "Name": "TAUclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min",
+      "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "25",
         "10",
