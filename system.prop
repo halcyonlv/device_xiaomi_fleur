@@ -42,13 +42,5 @@ ro.sf.blurs_are_expensive=1
 # HWUI
 ro.hwui.render_ahead=20
 
-# WiFi
-ro.wifi.channels=
-wifi.direct.interface=p2p0
-wifi.interface=wlan0
-wifi.tethering.interface=ap0
-ro.mediatek.wlan.p2p=1
-ro.mediatek.wlan.wsc=1
-
 # enable FIFO scheduling for UI and Render threads by default
 sys.use_fifo_ui=1
