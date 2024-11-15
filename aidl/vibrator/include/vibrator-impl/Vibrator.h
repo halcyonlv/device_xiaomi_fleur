@@ -29,13 +29,13 @@ static constexpr char duration_node[] = "/sys/devices/platform/aw8622/duration";
 static constexpr char index_node[] = "/sys/devices/platform/aw8622/index";
 
 // Define durations for waveforms
-static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 2;
-static constexpr uint32_t WAVEFORM_TEXTURE_TICK_EFFECT_MS = 10;
-static constexpr uint32_t WAVEFORM_CLICK_EFFECT_MS = 6;
-static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 8;
+static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 1;
+static constexpr uint32_t WAVEFORM_TEXTURE_TICK_EFFECT_MS = 5;
+static constexpr uint32_t WAVEFORM_CLICK_EFFECT_MS = 3;
+static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 25;
 static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_MS = 80;
-static constexpr uint32_t WAVEFORM_THUD_EFFECT_MS = 40;
-static constexpr uint32_t WAVEFORM_POP_EFFECT_MS = 10;
+static constexpr uint32_t WAVEFORM_THUD_EFFECT_MS = 20;
+static constexpr uint32_t WAVEFORM_POP_EFFECT_MS = 5;
 
 // Select waveform index from firmware through index list
 static constexpr uint32_t WAVEFORM_TICK_EFFECT_INDEX = 1;
