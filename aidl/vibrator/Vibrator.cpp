@@ -102,6 +102,21 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
             LOG(INFO) << "Vibrator effect set to DOUBLE_CLICK";
             index = WAVEFORM_DOUBLE_CLICK_EFFECT_INDEX;
             timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS * aw8622_strength_dclick;
+
+            write_haptic_node(index_node, index);
+            status = on(timeMs, nullptr);
+            if (!status.isOk()) {
+                return status;
+            }
+
+            sleep_ms(50);
+        
+            write_haptic_node(index_node, index);
+            status = on(timeMs, nullptr);
+            if (!status.isOk()) {
+                return status;
+            }
+            
             break;
         case Effect::THUD:
             LOG(INFO) << "Vibrator effect set to THUD";
