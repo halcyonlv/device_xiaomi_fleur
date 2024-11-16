@@ -32,6 +32,12 @@ on init
     write /dev/cpuctl/rt/cpu.uclamp.min 10
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
 
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
+
 on enable-low-power
     write /proc/cpufreq/cpufreq_sched_disable 0
 
