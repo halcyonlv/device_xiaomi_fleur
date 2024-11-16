@@ -28,6 +28,10 @@ on init
     write /dev/cpuctl/rt/cpu.shares 20480
     write /dev/cpuctl/top-app/cpu.shares 20480
 
+    # AAudio Boost
+    write /dev/cpuctl/rt/cpu.uclamp.min 10
+    write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
+
 on enable-low-power
     write /proc/cpufreq/cpufreq_sched_disable 0
 
