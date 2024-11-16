@@ -18,9 +18,7 @@ on init
     # Set PELT multiplier to 2, which is equivalent to a 16ms half-life.
     write /proc/sys/kernel/sched_pelt_multiplier 2
 
-    # Setup cpu.shares to throttle background groups (bg ~ 5% sysbg ~ 5% dex2oat ~2.5%)
-    write /dev/cpuctl/background/cpu.shares 1024
-    write /dev/cpuctl/system-background/cpu.shares 1024
+    # Setup cpu.shares
     write /dev/cpuctl/dex2oat/cpu.shares 2048
     write /dev/cpuctl/system/cpu.shares 20480
     write /dev/cpuctl/camera-daemon/cpu.shares 20480
@@ -33,14 +31,22 @@ on init
     write /dev/cpuctl/rt/cpu.uclamp.min 10
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
 
+    # Background groups for best efficiency
+    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/background/cpu.shares 512
+    write /dev/cpuctl/system-background/cpu.shares 512
+    write /dev/cpuctl/background/cpu.uclamp.min 0
+    write /dev/cpuctl/background/cpu.uclamp.max 30
+    write /dev/cpuctl/system-background/cpu.uclamp.min 0
+    write /dev/cpuctl/system-background/cpu.uclamp.max 30
+
     # NNAPI HAL Boosts
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 90
 
     # Latency Sensitive
-    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
