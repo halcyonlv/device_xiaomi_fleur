@@ -35,7 +35,7 @@ on init
     # Latency Sensitive
     write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
