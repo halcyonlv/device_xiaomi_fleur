@@ -15,8 +15,10 @@ bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.sap.server.enabled=true
 
-# Dalvik
+# dex2oat
 dalvik.vm.dex2oat64.enabled=true
+dalvik.vm.dex2oat-cpu-set=2,3,4,5,6
+dalvik.vm.dex2oat-threads=5
 
 # IMS
 persist.dbg.ims_volte_enable=1 
