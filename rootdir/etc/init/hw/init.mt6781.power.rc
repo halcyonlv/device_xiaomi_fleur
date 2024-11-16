@@ -38,10 +38,10 @@ on init
     write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
 
     # Configure governor settings for little cluster
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
