@@ -941,10 +941,6 @@ vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
 vendor/lib/egl/egl.cfg
 vendor/lib/mt6781/libmtk_drvb.so:vendor/lib/libmtk_drvb.so
-vendor/lib/arm.graphics-V1-ndk_platform.so
-vendor/lib/libdip_drv.so
-vendor/lib/libdip_imem.so
-vendor/lib/libdip_postproc.so
 vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/hw/vulkan.mt6781.so
 vendor/lib64/egl/libGLES_meow.so
 vendor/lib64/egl/libMEOW_data.so
@@ -1054,7 +1050,6 @@ vendor/etc/init/android.hardware.gnss-service.mediatek.rc
 -vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/gnss-mtk.xml
 -vendor/etc/vintf/manifest/gnss@2.1-service.xml
 vendor/etc/init/mtk_agpsd_p.rc
-vendor/lib/libviagpsrpc.so
 vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
@@ -1215,9 +1210,7 @@ vendor/lib/libmtkcutils.so
 vendor/lib/libmtkproperty.so
 vendor/lib/libmtkares.so
 vendor/lib/libmtkrillog.so
-vendor/lib/libmmprofile.so
 vendor/lib/libverno.so
-vendor/lib/libsysenv.so
 vendor/lib64/libcares_naptr.so
 vendor/lib64/libcarrierconfig.so
 vendor/lib64/libccci_util.so
