@@ -237,10 +237,6 @@ ro.lmk.thrashing_limit=30
 ro.lmk.thrashing_limit_decay=50
 ro.lmk.swap_util_max=90
 
-# Sensors
-ro.vendor.mtk.sensor.support=yes
-ro.vendor.init.sensor.rc=init.sensor_1_0.rc
-
 # Storage
 external_storage.casefold.enabled=1
 external_storage.projid.enabled=1
