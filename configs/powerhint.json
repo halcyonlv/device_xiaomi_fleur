@@ -195,17 +195,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "UclampMin",
-      "Path": "/dev/cpuctl/system/cpu.uclamp.min",
-      "Values": [
-        "25",
-        "10",
-        "0"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": true
-    },
-    {
       "Name": "FGUclampMin",
       "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
@@ -338,12 +327,6 @@
       "Node": "FGUclampMin",
       "Duration": 2500,
       "Value": "10"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "UclampMin",
-      "Duration": 2500,
-      "Value": "25"
     },
     {
       "PowerHint": "LAUNCH",
