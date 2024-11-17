@@ -311,9 +311,9 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "FGUclampMin",
+      "Node": "TAUclampMin",
       "Duration": 0,
-      "Value": "10"
+      "Value": "20"
     },
     {
       "PowerHint": "LAUNCH",
