@@ -41,6 +41,11 @@ on init
     write /dev/cpuctl/system-background/cpu.uclamp.min 0
     write /dev/cpuctl/system-background/cpu.uclamp.max 30
 
+    # Foreground group
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/foreground/cpu.uclamp.min 15
+    write /dev/cpuctl/foreground/cpu.uclamp.max max
+
     # NNAPI HAL Boosts
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
@@ -50,7 +55,6 @@ on init
     write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
 
