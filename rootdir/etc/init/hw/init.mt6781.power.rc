@@ -52,7 +52,7 @@ on init
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 90
 
     # Latency Sensitive
-    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
