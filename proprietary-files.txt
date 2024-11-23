@@ -1304,7 +1304,7 @@ vendor/lib64/libssl-md.so
 vendor/lib64/librt_extamp_intf.so
 vendor/lib64/libcurl-md.so
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
-vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE=vendor.mediatek.hardware.videotelephony@1.0_vendor
 
 # Radio (MTK-IMS)
 system_ext/bin/vtservice
