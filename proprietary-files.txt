@@ -834,6 +834,8 @@ vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmibokeh_mt6873.so
 vendor/lib64/libmiStereoFactoryRemapLib.so
 vendor/lib64/libmiStereoFactoryRemapBasicLib.so
+vendor/lib64/libremosaiclib.so
+vendor/lib64/libremosaic_wrapper.so
 vendor/lib64/libvidhance.so
 vendor/lib64/libvideofilter_only.so
 vendor/lib64/libvidhance_stabilizer.so
@@ -980,8 +982,10 @@ vendor/lib64/libgralloc_extra.so
 vendor/lib64/libgralloc_metadata.so
 vendor/lib64/libgralloctypes_mtk.so
 vendor/lib64/libhdrvideo.so
+vendor/lib64/libminiui.so
 vendor/lib64/libmmagent.so
 vendor/lib64/libmml.so
+vendor/lib64/libpixelflinger.so
 vendor/lib64/libpqpconfig.so
 vendor/lib64/libpqframework.so
 vendor/lib64/libpq_cust_base.so
@@ -1150,8 +1154,6 @@ vendor/lib64/libneuropilot_hal_utils.so
 vendor/lib64/libneuron_adapter.so
 vendor/lib64/libneuron_platform.so
 vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so
-vendor/lib64/libnwk_opt_halwrap_vendor.so
-vendor/lib64/nwk_opt_imp.so
 vendor/lib64/libmvpu_config_data.so
 vendor/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so
 
@@ -1196,7 +1198,6 @@ vendor/lib64/vendor.mediatek.hardware.nvram@1.1.so
 vendor/bin/ccci_rpcd
 vendor/bin/ccci_mdinit
 vendor/bin/ipsec_mon
-vendor/bin/vsimd
 vendor/bin/wfca
 vendor/bin/gsm0710muxd
 vendor/bin/hw/mtkfusionrild
@@ -1298,6 +1299,7 @@ vendor/lib/libvt_custom.so
 vendor/lib/libvolte_core_shr.so
 vendor/lib/libvolte_xdmc_shr.so
 vendor/lib/librcs_volte_core.so
+vendor/lib/vendor.mediatek.hardware.rcs@2.0.so
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE=vendor.mediatek.hardware.videotelephony@1.0_vendor
