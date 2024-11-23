@@ -148,6 +148,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.hardware_keystore.km41.xml
+
 # Light
 PRODUCT_PACKAGES += \
     android.hardware.light-service.xiaomi
