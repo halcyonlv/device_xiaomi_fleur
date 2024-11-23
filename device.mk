@@ -58,28 +58,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.3-impl:32
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0.vendor:64
-
-PRODUCT_PACKAGES += \
-    audio.bluetooth.default:32 \
-    audio.primary.default:32 \
-    audio.r_submix.default:32 \
-    audio.usb.default:32 \
-    audio_policy.stub
-
-PRODUCT_PACKAGES += \
     MtkInCallService
-
-PRODUCT_PACKAGES += \
-    libaudiofoundation.vendor:32 \
-    libunwindstack.vendor \
-    libbluetooth_audio_session:32 \
-    libalsautils:32 \
-    libnbaio_mono:32 \
-    libtinycompress:32 \
-    libdynproc:32 \
-    libhapticgenerator:32 \
-    libsqlite.vendor:32
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -93,23 +72,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.1.vendor:64 \
     libldacBT_bco
 
 # Boot Image profile
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
-
-# Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.device@3.6.vendor:64 \
-    android.hardware.camera.provider@2.6.vendor:64
-
-PRODUCT_PACKAGES += \
-    libcamera_metadata.vendor:64 \
-    libexif.vendor:64 \
-    libpng.vendor:64 \
-    libmemunreachable.vendor:64
 
 # ConsumerIR
 PRODUCT_PACKAGES += \
@@ -123,15 +90,9 @@ PRODUCT_COPY_FILES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3-service \
-    android.hardware.memtrack-service.mediatek-mali \
-    android.hardware.graphics.allocator@4.0.vendor:64 \
+    android.hardware.memtrack-service.mediatek-mali
 
 PRODUCT_PACKAGES += \
-    libdrm.vendor:64 \
-    libutilscallstack.vendor
-
-PRODUCT_PACKAGES += \
-    libutils-v32 \
     libutils.vendor
 
 PRODUCT_PACKAGES += \
@@ -145,13 +106,6 @@ TARGET_SCREEN_DENSITY := 440
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor:64
-
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-lite-3.9.1-vendorcompat:64 \
-    libprotobuf-cpp-full-3.9.1-vendorcompat:64
-
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
@@ -163,10 +117,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-        android.hardware.biometrics.fingerprint-service.xiaomi \
-    libvendor.goodix.hardware.biometrics.fingerprint@2.1.vendor:64 \
-    vendor.xiaomi.hardware.fingerprintextension@1.0.vendor:64 \
-    com.fingerprints.extension@1.0.vendor:64
+    android.hardware.biometrics.fingerprint-service.xiaomi
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
@@ -178,33 +129,12 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
-# GNSS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss.measurement_corrections@1.1.vendor:64 \
-    android.hardware.gnss.visibility_control@1.0.vendor:64 \
-    android.hardware.gnss@1.1.vendor:64 \
-    android.hardware.gnss@2.1.vendor:64 \
-    android.hardware.gnss-V1-ndk.vendor:64
-
-PRODUCT_PACKAGES += \
-    libcurl.vendor:64 \
-    libexpat.vendor:64
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0.vendor
-
-# HIDL
-PRODUCT_PACKAGES += \
-    libhidltransport \
-    libhidltransport.vendor \
-    libhwbinder.vendor \
-    android.hidl.allocator@1.0.vendor
-
+# IMS
 PRODUCT_BOOT_JARS += \
     mediatek-common \
     mediatek-ims-base \
@@ -215,25 +145,8 @@ PRODUCT_BOOT_JARS += \
     mediatek-telephony-common \
     mediatek-ims-extension-plugin
 
-PRODUCT_PACKAGES += \
-    libshim_sink \
-    libui_shim
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    libkeymaster4_1support.vendor:64 \
-    libkeymaster41.vendor:64 \
-    libkeymaster_messages.vendor:64 \
-    libkeymaster_portable.vendor:64 \
-    libpuresoftkeymasterdevice.vendor:64 \
-    libsoft_attestation_cert.vendor:64 \
-    android.hardware.keymaster@4.1.vendor:64
-
-PRODUCT_PACKAGES += \
-    android.hardware.hardware_keystore.km41.xml
 
 # Light
 PRODUCT_PACKAGES += \
@@ -243,20 +156,6 @@ PRODUCT_PACKAGES += \
 include $(LOCAL_PATH)/vendor_logtag.mk
 
 # Media
-PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2.vendor:64
-
-PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.2.vendor:64 \
-    libcodec2_soft_common.vendor:64 \
-
-PRODUCT_PACKAGES += \
-    libsfplugin_ccodec_utils.vendor \
-    libavservices_minijail.vendor
-
-PRODUCT_PACKAGES += \
-    libstagefright_foundation-v33
-
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -286,11 +185,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_fleurp/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_fleurp/android.hardware.se.omapi.uicc.xml
 
-# Neural Networks
-PRODUCT_PACKAGES += \
-    android.hardware.neuralnetworks@1.3.vendor:64 \
-    libtextclassifier_hash.vendor:64
-
 # Overlays
 PRODUCT_PACKAGES += \
     ApertureOverlayFleur \
@@ -306,10 +200,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-
-# PCap
-PRODUCT_PACKAGES += \
-    libpcap.vendor
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -358,19 +248,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub \
-    libmtkperf_client_vendor \
-    libmtkperf_client
-
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.3.vendor
-
-PRODUCT_PACKAGES += \
-    vendor.mediatek.hardware.mtkpower@1.0.vendor \
-    vendor.mediatek.hardware.mtkpower@1.1.vendor \
-    vendor.mediatek.hardware.mtkpower@1.2.vendor
-
-PRODUCT_PACKAGES += \
-    libshim_power:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -382,14 +259,6 @@ PRODUCT_PACKAGES += \
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
-
-# Radio
-PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.3.vendor:64 \
-    android.hardware.radio@1.6.vendor:64
-
-PRODUCT_PACKAGES += \
-    libruy.vendor:64
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -411,21 +280,11 @@ PRODUCT_PACKAGES += \
     fstab.zram \
     ueventd.mt6781.rc
 
-# Secure Element
-PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.2.vendor:64
-
 # Sensors
 PRODUCT_PACKAGES += \
-    libsensorndkbridge \
-    android.frameworks.sensorservice@1.0.vendor:64 \
-    android.frameworks.sensorservice@1.0:64 \
+    android.hardware.sensors-service.xiaomi-multihal \
     android.hardware.sensors@2.0-subhal-impl-1.0.fleur:64 \
-    sensors.dynamic_sensor_hal:64 \
-    android.hardware.sensors-service.xiaomi-multihal
-
-PRODUCT_PACKAGES += \
-    libshim_sensors:64
+    sensors.dynamic_sensor_hal:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_ODM)/etc/sensors/hals.conf
@@ -470,13 +329,6 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwifi-hal-wrapper \
     android.hardware.wifi-service
-
-PRODUCT_PACKAGES += \
-    android.hardware.tetheroffload.config@1.0.vendor:64 \
-    android.hardware.tetheroffload.control@1.1.vendor:64
-
-PRODUCT_PACKAGES += \
-    libnetutils.vendor:64
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
