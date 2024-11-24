@@ -28,7 +28,8 @@ on init
     write /dev/cpuctl/rt/cpu.shares 20480
     write /dev/cpuctl/top-app/cpu.shares 20480
 
-    # AAudio Boost
+    # RT group
+    write /dev/cpuctl/rt/cpu.uclamp.min max
     write /dev/cpuctl/rt/cpu.uclamp.min 10
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
 
@@ -42,12 +43,17 @@ on init
     write /dev/cpuctl/system-background/cpu.uclamp.min 0
     write /dev/cpuctl/system-background/cpu.uclamp.max 30
 
+    # Camera daemon group
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 70
+
     # Foreground group
     write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/foreground/cpu.uclamp.min 15
     write /dev/cpuctl/foreground/cpu.uclamp.max max
 
-    # NNAPI HAL Boosts
+    # NNAPI HAL group
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 90
@@ -55,8 +61,6 @@ on init
     # Latency Sensitive
     write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
 
     # Configure governor settings for little cluster
