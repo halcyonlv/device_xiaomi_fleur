@@ -16,9 +16,6 @@ on init
     write /dev/cpuset/camera-daemon/cpus 0-7
     write /dev/cpuset/restricted/cpus 0-3
 
-    # Set PELT multiplier to 2, which is equivalent to a 16ms half-life.
-    write /proc/sys/kernel/sched_pelt_multiplier 2
-
     # Setup cpu.shares
     write /dev/cpuctl/dex2oat/cpu.shares 2048
     write /dev/cpuctl/system/cpu.shares 20480
