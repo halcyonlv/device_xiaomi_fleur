@@ -16,19 +16,11 @@ on init
     write /dev/cpuset/camera-daemon/cpus 0-7
     write /dev/cpuset/restricted/cpus 0-3
 
-    # Setup cpu.shares
-    write /dev/cpuctl/dex2oat/cpu.shares 2048
-    write /dev/cpuctl/system/cpu.shares 20480
-    write /dev/cpuctl/camera-daemon/cpu.shares 20480
-    write /dev/cpuctl/foreground/cpu.shares 20480
-    write /dev/cpuctl/nnapi-hal/cpu.shares 20480
-    write /dev/cpuctl/rt/cpu.shares 20480
-    write /dev/cpuctl/top-app/cpu.shares 20480
-
     # RT group
+    write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/rt/cpu.uclamp.min max
     write /dev/cpuctl/rt/cpu.uclamp.min 10
-    write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/rt/cpu.shares 20480
 
     # Background groups for best efficiency
     write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
@@ -44,21 +36,37 @@ on init
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 70
+    write /dev/cpuctl/camera-daemon/cpu.shares 20480
+
+    # dex2oat group
+    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/foreground/cpu.uclamp.min 5
+    write /dev/cpuctl/foreground/cpu.uclamp.max 50
+    write /dev/cpuctl/dex2oat/cpu.shares 2048
 
     # Foreground group
     write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/foreground/cpu.uclamp.min 15
     write /dev/cpuctl/foreground/cpu.uclamp.max max
+    write /dev/cpuctl/foreground/cpu.shares 20480
 
     # NNAPI HAL group
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 90
+    write /dev/cpuctl/nnapi-hal/cpu.shares 20480
 
-    # Latency Sensitive
-    write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 0
+    # System group
     write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/system/cpu.uclamp.max max
+    write /dev/cpuctl/system/cpu.uclamp.min 5
+    write /dev/cpuctl/system/cpu.shares 20480
+
+    # Top app group
     write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/top-app/cpu.uclamp.min 15
+    write /dev/cpuctl/top-app/cpu.uclamp.max max
+    write /dev/cpuctl/top-app/cpu.shares 20480
 
     # Configure governor settings for little cluster
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
