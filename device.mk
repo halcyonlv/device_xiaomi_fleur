@@ -465,7 +465,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator-service.fleur
+    vendor.qti.hardware.vibrator.service.fleur
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
