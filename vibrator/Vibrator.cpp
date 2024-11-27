@@ -326,7 +326,7 @@ LedVibratorDevice::LedVibratorDevice() {
     char devicename[PATH_MAX];
     int fd;
 
-    mDetected = false;
+    mDetected = true;
 
     snprintf(devicename, sizeof(devicename), "%s/%s", LED_DEVICE, "activate");
     fd = TEMP_FAILURE_RETRY(open(devicename, O_RDWR));
@@ -334,8 +334,6 @@ LedVibratorDevice::LedVibratorDevice() {
         ALOGE("open %s failed, errno = %d", devicename, errno);
         return;
     }
-
-    mDetected = true;
 }
 
 int LedVibratorDevice::write_value(const char *file, const char *value) {
