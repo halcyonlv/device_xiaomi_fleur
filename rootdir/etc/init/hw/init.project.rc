@@ -73,16 +73,18 @@ on post-fs-data
 
     # Fingerprint
     mkdir /data/vendor/misc 01771 system system
-    mkdir /data/vendor/fpc 0770 system system
+    mkdir /data/vendor/fpc 0777 system system
     mkdir /data/vendor/fpdump 0770 system system
     mkdir /data/vendor/gf_data 0770 system system
-    mkdir /data/vendor/goodix 0770 system system
+    mkdir /data/vendor/goodix 0777 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on boot
-    chmod 0666 /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
     chown system system /dev/goodix_fp
 
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/fingerdown_wait
+    chmod 0666 /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/fingerdown_wait
     chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/clk_enable
     chmod 0660 /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/clk_enable
     chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/wakeup_enable
