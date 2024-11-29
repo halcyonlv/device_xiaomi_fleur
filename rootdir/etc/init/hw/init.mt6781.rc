@@ -26,18 +26,11 @@ on init
     write /proc/sys/net/core/wmem_max 8388608
     write /proc/sys/net/core/rmem_max 8388608
 
-    # Report max frequency to unity tasks.
-    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
-    write /proc/sys/kernel/sched_lib_mask_force 255
-
 on late-init
     # Enable rcu_expedited
     write /sys/kernel/rcu_expedited 1
 
 on charger
-    chmod 0660 /dev/spm
-    chown system system /dev/spm
-    start spm_script
     chmod 0666 /dev/kmsg
     chmod 0775 /mnt/vendor
     mkdir /mnt/vendor/nvcfg
@@ -93,25 +86,6 @@ on late-fs
     restorecon_recursive /mnt/vendor/persist
 
 on post-fs
-    # Change permissions for mediaserver
-    chown root media /proc/clkmgr/mipi_test
-
-    # Change permission for engineer mode
-    chown radio system /proc/clkmgr/pll_test
-    chown radio system /proc/clkmgr/pll_fsel
-    chmod 0664 /proc/clkmgr/pll_test
-    chmod 0664 /proc/clkmgr/pll_fsel
-    chown radio system /proc/freqhopping/dramc
-    chown radio system /proc/freqhopping/dumpregs
-    chown radio system /proc/freqhopping/freqhopping_debug
-    chown radio system /proc/freqhopping/status
-    chown radio system /proc/freqhopping/userdef
-
-    chown system system /proc/bootprof
-    chmod 0664 /proc/bootprof
-    chown root system /proc/mtprof/cputime
-    chown root system /proc/mtprof/reboot_pid
-
     chown system system /mnt/vendor/protect_f
     chmod 0770 /mnt/vendor/protect_f
 
@@ -200,9 +174,6 @@ on post-fs-data
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /mnt/vendor/nvdata
 
-    # Give system access to rfkill device node
-    chmod 0660 /dev/rfkill
-
     # Create for muxd pts device node to operate without root
     mkdir /dev/radio 0770 radio radio
 
@@ -237,9 +208,6 @@ on post-fs-data
     chmod 0440 /dev/sspm
     chown root system /dev/sspm
 
-    # radvd
-    chmod 444 /etc/radvd/radvd.conf
-
     # Mali 3D GPU driver
     chmod 666 /dev/mali0
 
@@ -263,11 +231,7 @@ on post-fs-data
 
     chmod 0666 /dev/pmem_multimedia
 
-    # Set ptmx group to non-root
-    chown root radio /dev/ptmx
-
     # M4U
-    chmod 0444 /dev/m4u
     chmod 0640 /proc/m4u
     chown system media /proc/m4u
 
@@ -883,16 +847,20 @@ on property:sys.boot_completed=1
     write /sys/block/sdc/queue/nr_requests 128
 
     # TouchPad settings
-    on property:sys.tp.grip_enable=0
-	write /proc/tp_grip_area 0
-	on property:sys.tp.grip_enable=1
-	write /proc/tp_grip_area 1
-	on property:sys.tp.grip_enable=90
-	write /proc/tp_grip_area 90
-	on property:sys.tp.grip_enable=180
-	write /proc/tp_grip_area 180
-	on property:sys.tp.grip_enable=270
-	write /proc/tp_grip_area 270
+on property:sys.tp.grip_enable=0
+    write /proc/tp_grip_area 0
+
+on property:sys.tp.grip_enable=1
+    write /proc/tp_grip_area 1
+
+on property:sys.tp.grip_enable=90
+    write /proc/tp_grip_area 90
+
+on property:sys.tp.grip_enable=180
+    write /proc/tp_grip_area 180
+
+on property:sys.tp.grip_enable=270
+    write /proc/tp_grip_area 270
 
 # Battery info
 on property:persist.vendor.mediatek.fg.disable=1
