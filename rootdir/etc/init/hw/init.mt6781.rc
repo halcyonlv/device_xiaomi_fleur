@@ -869,7 +869,7 @@ on property:vold.decrypt=trigger_shutdown_framework
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class late_start
     disabled
     oneshot
@@ -922,13 +922,6 @@ on property:sys.boot_completed=1
 # add for btmac
 on property:persist.ro.ril.oem.btmac=*
     setprop ro.ril.oem.btmac ${persist.ro.ril.oem.btmac}
-
-# VSIM service (vendor OSI)
-service osi /system/bin/osi
-    class main
-    user root
-    disabled
-    oneshot
 
 # MultiSIM
 on property:ro.boot.opt_sim_count=*
