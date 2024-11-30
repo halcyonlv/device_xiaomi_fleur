@@ -104,6 +104,12 @@ int LedVibratorDevice::on(int32_t timeoutMs) {
     if (ret < 0)
        goto error;
 
+    snprintf(file, sizeof(file), "%s/%s", LED_DEVICE, "strength");
+    snprintf(value, sizeof(value), "%u\n", strength_effect);
+    ret = write_value(file, value);
+    if (ret < 0)
+       goto error;
+
     snprintf(file, sizeof(file), "%s/%s", LED_DEVICE, "activate");
     ret = write_value(file, "1");
     if (ret < 0)
@@ -167,8 +173,22 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Vibrator::perform(Effect effect __unused, EffectStrength es __unused, const std::shared_ptr<IVibratorCallback>& callback __unused, int32_t* _aidl_return __unused) {
-    return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+ndk::ScopedAStatus Vibrator::perform(Effect effect __unused, EffectStrength es, const std::shared_ptr<IVibratorCallback>& callback __unused, int32_t* _aidl_return __unused) {
+    switch (es) {
+    case EffectStrength::LIGHT:
+        strength_effect = 0;
+        break;
+    case EffectStrength::MEDIUM:
+        strength_effect = 1;
+        break;
+    case EffectStrength::STRONG:
+        strength_effect = 2;
+        break;
+    default:
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+
+    return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect>* _aidl_return) {

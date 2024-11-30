@@ -802,6 +802,7 @@ on boot
     chown system system /sys/bus/platform/devices/aw8622/duration
     chown system system /sys/bus/platform/devices/aw8622/hwen
     chown system system /sys/bus/platform/devices/aw8622/load_wavefile_ctrl
+    chown system system /sys/bus/platform/devices/aw8622/strength
     chown system system /sys/bus/platform/devices/aw8622/debug_val_ctrl
     chown system system /sys/bus/platform/devices/aw8622/pwm_ctrl
     chown system system /sys/bus/platform/devices/aw8622/test_cnt
