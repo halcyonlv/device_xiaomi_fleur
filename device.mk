@@ -221,10 +221,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml
 
-# Linker
-PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
-    $(LOCAL_PATH)/configs/linker.config.json
-
 # Keymaster
 PRODUCT_PACKAGES += \
     libkeymaster4_1support.vendor:64 \
