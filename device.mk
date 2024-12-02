@@ -60,7 +60,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.bluetooth.default:32 \
     audio.r_submix.default:32 \
-    audio.usb.default:32
+    audio.usb.default:32 \
+    audio_policy.stub:32
 
 PRODUCT_PACKAGES += \
     MtkInCallService
