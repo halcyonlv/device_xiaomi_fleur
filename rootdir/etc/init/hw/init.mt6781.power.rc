@@ -18,7 +18,7 @@ on init
 
     # RT group
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 0
-    write /dev/cpuctl/rt/cpu.uclamp.min max
+    write /dev/cpuctl/rt/cpu.uclamp.max max
     write /dev/cpuctl/rt/cpu.uclamp.min 10
     write /dev/cpuctl/rt/cpu.shares 20480
 
