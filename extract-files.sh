@@ -133,6 +133,10 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             "$PATCHELF" --replace-needed "libutils.so" "libutils-v32.so" "$2"
             ;;
+        vendor/lib64/hw/fingerprint.fpc.default.so)
+            xxd -p "${2}" | sed "s/1f2afd7bc2a8c0035fd600000000ff8301d1fd7b02a9fd830091f85f03a9/1f2afd7bc2a8c0035fd600000000c0035fd6fd7b02a9fd830091f85f03a9/g" | xxd -r -p > "${2}".patched
+            mv "${2}".patched "${2}"
+            ;;
         vendor/lib64/vendor.mediatek.hardware.power@1.1.so|\
         vendor/lib64/vendor.mediatek.hardware.power@2.0.so)
             [ "$2" = "" ] && return 0
